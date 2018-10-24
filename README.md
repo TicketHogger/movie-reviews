@@ -37,3 +37,7 @@ npm install -g webpack
 npm install
 ```
 
+## Seeding database
+
+From within root:
+npm run seed-db
