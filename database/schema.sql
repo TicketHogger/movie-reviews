@@ -1,1 +1,14 @@
 CREATE DATABASE IF NOT EXISTS fandango;
+use fandango;
+
+DROP TABLE IF EXISTS movies;
+
+CREATE TABLE movies (
+	id INT NOT NULL AUTO_INCREMENT,
+	Username VARCHAR(50) NOT NULL,
+	Title VARCHAR(50),
+	Mooz INT NOT NULL,
+	Review VARCHAR(500),
+	Helpful INT,
+	PRIMARY KEY (id)
+);
