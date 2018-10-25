@@ -20,7 +20,13 @@ app.use(function(request, response, next) {
 
 
 app.get('/api/movies/:movieid/reviews', (req, res) => {
-	res.send('hello');
+	connection.query('SELECT * FROM movies', function(err, results) {
+    if (err) {
+      res.status(500).send(err.message);
+    } else {
+      res.send(results);
+    }
+  });
 });
 
 app.listen(port, () => console.log("listening on port", port));
