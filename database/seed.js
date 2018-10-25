@@ -3,7 +3,27 @@ const fs = require('fs');
 
 const db = 'movies';
 const sqlFileUrl = 'schema.sql';
-const rows = 10;
+const rows = 100;
+
+const createDB = 'CREATE DATABASE IF NOT EXISTS fandango;\n\
+use fandango;\n\
+\n\
+DROP TABLE IF EXISTS movies;\n\
+\n\
+CREATE TABLE movies (\n\
+  id INT NOT NULL AUTO_INCREMENT,\n\
+  Username VARCHAR(50) NOT NULL,\n\
+  Title VARCHAR(50),\n\
+  Mooz INT NOT NULL,\n\
+  Review VARCHAR(500),\n\
+  Helpful INT,\n\
+  PRIMARY KEY (id)\n\
+);\n'
+fs.writeFile(sqlFileUrl, createDB, err => {
+  if (err) {
+    console.log('Error creating file', err);
+  }
+});
 
 for (let i = 0; i < rows; i++) {
   let titleLength = Math.floor(Math.random() * 5) + 1; // 1-5
