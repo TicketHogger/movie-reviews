@@ -31,5 +31,6 @@
     "faker": "^4.1.0",
     "supertest": "^3.3.0",
     "webpack-cli": "^3.1.2"
-  }
+  },
+  "eslintIgnore": ["/dist/review.bundle.js"]
 }

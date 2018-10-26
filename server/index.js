@@ -20,7 +20,7 @@ app.use(function(request, response, next) {
 
 
 app.get('/api/movies/:movieid/reviews', (req, res) => {
-	connection.query('SELECT * FROM movies', function(err, results) {
+  connection.query('SELECT * FROM movies', function(err, results) {
     if (err) {
       res.status(500).send(err.message);
     } else {
@@ -30,6 +30,6 @@ app.get('/api/movies/:movieid/reviews', (req, res) => {
 });
 
 
-app.listen(port, () => console.log("listening on port", port));
+app.listen(port, () => console.log('listening on port', port));
 
 module.exports = app;
