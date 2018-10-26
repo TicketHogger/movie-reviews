@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "webpack -w",
-    "seed-db": "mysql -u root -p < database/schema.sql"
+    "seed-db": "mysql -u root -p --local-infile < database/schema.sql"
   },
   "dependencies": {
     "@babel/cli": "^7.1.2",
