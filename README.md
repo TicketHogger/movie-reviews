@@ -41,3 +41,9 @@ npm install
 
 From within root:
 npm run seed-db
+
+If error try from mysql shell:
+SHOW GLOBAL VARIABLES LIKE 'local_infile';
+
+If false, set with
+SET GLOBAL local_infile = true;
