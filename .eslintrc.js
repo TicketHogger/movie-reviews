@@ -6,5 +6,12 @@
  */
 
 module.exports = {
-  extends: './node_modules/eslint-config-hackreactor/index.js'
+  // extends: './node_modules/eslint-config-airbnb-standard/index.js'
+  // extends: './node_modules/eslint-config-hackreactor/index.js'
+  "extends": ["airbnb-standard"],
+  "rules": {
+  	"prefer-template": "off",
+  	"no-plusplus": 0,
+  	"no-console": 0
+  }
 };

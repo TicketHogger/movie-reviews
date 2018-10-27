@@ -1,26 +1,26 @@
 const express = require('express');
 
 const bodyParser = require('body-parser');
-const connection = require('../database/connection.js');
 const path = require('path');
+const connection = require('../database/connection.js');
 
 const app = express();
 const port = 3013;
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(function(request, response, next) {
+app.use(express.static(path.resolve(__dirname, '../dist/')));
+
+app.use((request, response, next) => {
   response.set({
     'Access-Control-Allow-Origin': '*'
   });
   next();
 });
 
-
 app.get('/api/movies/:movieid/reviews', (req, res) => {
-  connection.query('SELECT * FROM movies', function(err, results) {
+  connection.query('SELECT * FROM movies', (err, results) => {
     if (err) {
       res.status(500).send(err.message);
     } else {
@@ -28,7 +28,6 @@ app.get('/api/movies/:movieid/reviews', (req, res) => {
     }
   });
 });
-
 
 app.listen(port, () => console.log('listening on port', port));
 

@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "webpack -w",
+    "start": "nodemon server/index.js",
     "seed-db": "mysql -u root -p --local-infile < database/schema.sql"
   },
   "dependencies": {
@@ -17,20 +18,23 @@
     "babel": "^6.23.0",
     "babel-loader": "^8.0.4",
     "body-parser": "^1.18.3",
-    "eslint": "^5.7.0",
     "express": "^4.16.4",
+    "faker": "^4.1.0",
     "jest": "^23.6.0",
     "mysql": "^2.16.0",
+    "supertest": "^3.3.0",
     "nodemon": "^1.18.4",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "webpack": "^4.23.1"
   },
   "devDependencies": {
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-standard": "^2.1.6",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "faker": "^4.1.0",
-    "supertest": "^3.3.0",
     "webpack-cli": "^3.1.2"
   },
-  "eslintIgnore": ["/dist/review.bundle.js"]
+  "eslintIgnore": [
+    "/dist/review.bundle.js"
+  ]
 }
