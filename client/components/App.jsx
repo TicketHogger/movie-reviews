@@ -1,11 +1,8 @@
 import React from 'react';
 
-const App = (props) => {
-  return (
-    <div>
-      cool
-    </div>
-  );
-};
+const App = props => (
+  <div>
+    Linter is cool
+  </div>);
 
 export default App;

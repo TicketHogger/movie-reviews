@@ -14,4 +14,11 @@ module.exports = {
   	"no-plusplus": 0,
   	"no-console": 0
   }
+  // "settings": {
+  // 	"import/resolver": {
+  // 		"node": {
+  //       "extensions": [".js", ".jsx"]
+  //     }
+  // 	}
+  // }
 };

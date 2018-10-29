@@ -8,7 +8,25 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.jsx$/, use: 'babel-loader' }
+      {
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/env', '@babel/react']
+        }
+      }
     ]
-  }
+  },
+  resolve: { extensions: ['.js', '.jsx'] }
+  // loaders: [
+  //   {
+  //     test: /\.jsx?$/,
+  //     exclude: /node_modules/,
+  //     loader: 'babel-loader',
+  //     query: {
+  //       presets: ['es2015', 'react']
+  //     }
+  //   }
+  // ]
 };
