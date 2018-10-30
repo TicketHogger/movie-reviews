@@ -9,7 +9,7 @@ CREATE TABLE movies (
   Title VARCHAR(50),
   Mooz INT NOT NULL,
   Review VARCHAR(500),
-  Helpful INT,
+  Helpful INT DEFAULT 0,
   PRIMARY KEY (id)
 );
 
