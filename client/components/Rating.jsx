@@ -6,12 +6,12 @@ class Rating extends React.Component {
     const totalStars = 5;
     const result = [];
     const { stars } = this.props;
-    for (let i = 0; i < stars; i++) {
+    for (let i = 0; i < stars; i += 1) {
       result.push(
         <span className="fa fa-star checked" />
       );
     }
-    for (let i = 0; i < totalStars - stars; i++) {
+    for (let i = 0; i < totalStars - stars; i += 1) {
       result.push(
         <span className="fa fa-star" />
       );

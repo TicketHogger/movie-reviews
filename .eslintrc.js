@@ -11,7 +11,7 @@ module.exports = {
   "extends": ["airbnb-standard"],
   "rules": {
   	"prefer-template": "off",
-  	"no-plusplus": 0,
+  	// "no-plusplus": 0,
   	"no-console": 0
   },
   "parserOptions": {
