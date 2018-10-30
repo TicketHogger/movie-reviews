@@ -20,8 +20,8 @@ for (let i = 1; i < rows + 1; i += 1) {
   // const title = '"' + faker.lorem.sentence(titleLength).replace('.', '') + '"';
   // const moozRating = Math.floor(Math.random() * 5) + 1; // rating system
   // const reviewText = '"' + faker.lorem.paragraph() + '"';
-  const username = `${faker.internet.userName().replace('.', ' ')}`;
-  const title = `${faker.lorem.sentence(titleLength).replace('.', '')}`; // title of review
+  const username = `${faker.internet.userName().toUpperCase().replace('.', ' ')}`;
+  const title = `${faker.lorem.sentence(titleLength).toUpperCase().replace('.', '')}`; // title of review
   const moozRating = Math.floor(Math.random() * 5) + 1; // rating system
   const reviewText = `${faker.lorem.paragraph()}`;
   const helpfulReviews = Math.floor(Math.random() * 300);
