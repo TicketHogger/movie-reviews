@@ -13,7 +13,17 @@ module.exports = {
   	"prefer-template": "off",
   	"no-plusplus": 0,
   	"no-console": 0
-  }
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true
+  },
+  "parser": "babel-eslint"
   // "settings": {
   // 	"import/resolver": {
   // 		"node": {
