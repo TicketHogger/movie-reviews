@@ -1,8 +1,5 @@
 {
   "name": "",
-  "jest": {
-    "verbose": true
-  },
   "version": "",
   "description": "",
   "author": "",
@@ -15,6 +12,10 @@
     "start": "nodemon server/index.js",
     "seed-db": "mysql -u root -p --local-infile < database/schema.sql",
     "test": "jest"
+  },
+  "jest": {
+    "verbose": true,
+    "setupTestFrameworkScriptFile": "<rootDir>client/Review.test.jsx"
   },
   "dependencies": {
     "@babel/cli": "^7.1.2",
