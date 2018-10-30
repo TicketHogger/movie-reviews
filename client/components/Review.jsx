@@ -1,11 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Rating from './Rating';
 
 const Review = (props) => {
   const { review } = props;
   return (
     <div className="review">
-      {review.Review}
+      <Rating stars={review.Mooz} />
+      <div className="review-title">
+        <b>
+          {review.Title}
+        </b>
+      </div>
+      <div className="review-username">
+        BY
+        {` ${review.Username}`}
+      </div>
+      <div className="review-text">
+        {review.Review}
+      </div>
     </div>
   );
 };

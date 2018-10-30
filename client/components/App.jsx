@@ -42,7 +42,11 @@ class App extends React.Component {
     return (
       <div className="review-container">
         <div className="title-bar">
-          FAN REVIEWS
+          <b>
+            FAN REVIEWS
+          </b>
+        </div>
+        <div id="overall-rating">
           <Rating stars={3} />
         </div>
         <ReviewList reviews={this.reviews} />

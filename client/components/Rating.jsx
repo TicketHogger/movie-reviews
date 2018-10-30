@@ -8,12 +8,12 @@ class Rating extends React.Component {
     const { stars } = this.props;
     for (let i = 0; i < stars; i += 1) {
       result.push(
-        <span className="fa fa-star checked" />
+        <span className="fa fa-star fa-lg checked" />
       );
     }
     for (let i = 0; i < totalStars - stars; i += 1) {
       result.push(
-        <span className="fa fa-star" />
+        <span className="fa fa-star fa-lg" />
       );
     }
     return result;
