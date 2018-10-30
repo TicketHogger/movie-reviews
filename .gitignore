@@ -26,3 +26,6 @@ dist/
 
 ## package-lock
 package-lock.json
+
+#database
+.csv

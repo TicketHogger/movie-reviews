@@ -1,30 +1,30 @@
 const faker = require('faker');
 const fs = require('fs');
 
-const db = 'movies';
 const fileUrl = 'data.csv';
-const rows = 5;
+const rows = 100;
 
 const columns = 'username, title, mooz, review, helpful';
 
-fs.writeFile(fileUrl, columns, err => {
+fs.writeFile(fileUrl, columns, (err) => {
   if (err) {
-    console.log('Data file title write failture', err);
+    console.log('Data file title write failure', err);
   }
 });
 
-for (let i = 0; i < rows; i++) {
-  let titleLength = Math.floor(Math.random() * 5) + 1; // 1-5
+for (let i = 1; i < rows + 1; i++) {
+  const titleLength = Math.floor(Math.random() * 5) + 1; // 1-5
 
-  let id = i;
-  let username = '"' + faker.internet.userName().replace('.', ' ') + '"';
-  let title = '"' + faker.lorem.sentence(titleLength).replace('.', '') + '"'; // title of review
-  let moozRating = Math.floor(Math.random() * 5) + 1; // rating system
-  let reviewText = '"' + faker.lorem.paragraph() + '"';
-  let helpfulReviews = Math.floor(Math.random() * 300);
+  const id = i;
+  const username = '"' + faker.internet.userName().replace('.', ' ') + '"';
+  const title = '"' + faker.lorem.sentence(titleLength).replace('.', '') + '"'; // title of review
+  const moozRating = Math.floor(Math.random() * 5) + 1; // rating system
+  const reviewText = '"' + faker.lorem.paragraph() + '"';
+  const helpfulReviews = Math.floor(Math.random() * 300);
 
-  let data = '\n' + id + ',' + username + ',' + title + ',' + moozRating + ',' +  reviewText + ',' +  helpfulReviews;
-  fs.appendFile(fileUrl, data, err => {
+  const data = '\n' + id + ',' + username + ',' + title + ',' + moozRating + ',' + reviewText + ',' + helpfulReviews;
+
+  fs.appendFile(fileUrl, data, (err) => {
     if (err) {
       console.log('Data file write failure', err);
     } else {
