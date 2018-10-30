@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Rating extends React.Component {
-  createStars () { // add in unchecked stars
+  createStars () {
     const totalStars = 5;
     const result = [];
     const { stars } = this.props;
