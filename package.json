@@ -25,22 +25,25 @@
     "babel": "^6.23.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
+    "babel-preset-jest": "^23.2.0",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.3",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "es6-promise": "^4.2.5",
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "isomorphic-fetch": "^2.2.1",
     "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
     "mysql": "^2.16.0",
-    "enzyme": "^3.7.0",
     "nodemon": "^1.18.4",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
+    "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.6.0",
     "supertest": "^3.3.0",
-    "webpack": "^4.23.1",
-    "enzyme-adapter-react-16": "^1.6.0"
+    "webpack": "^4.23.1"
   },
   "devDependencies": {
     "babel-jest": "^23.6.0",
@@ -54,5 +57,8 @@
   },
   "eslintIgnore": [
     "/dist/review.bundle.js"
-  ]
+  ],
+  "babel": {
+    "presets": ["jest"]
+  }
 }
