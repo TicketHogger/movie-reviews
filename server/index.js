@@ -19,8 +19,17 @@ app.use((request, response, next) => {
   next();
 });
 
-app.get('/hi', (req, res) => {
-  res.send('cool');
+app.get('/api/movies/:movieid/rating', (req, res) => {
+  connection.query('SELECT AVG(Mooz) \'rating\' FROM movies', (err, results) => {
+    if (err) {
+      res.status(500).send(err.message);
+    } else {
+      let round = Math.round(results.rating * 10) / 10;
+      round = round.toFixed(1);
+      results.rating = round;
+      res.status(200).send(results);
+    }
+  });
 });
 
 app.get('/api/movies/:movieid/reviews', (req, res) => {
