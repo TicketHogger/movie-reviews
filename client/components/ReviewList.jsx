@@ -8,9 +8,6 @@ const ReviewList = (props) => {
     <div className="review-list">
       { reviews.map((review, index) => (
         <Review review={review} />))
-        // <div>
-        //   {console.log(review)}
-        // </div>))
       }
     </div>
   );
