@@ -19,6 +19,10 @@ app.use((request, response, next) => {
   next();
 });
 
+app.get('/hi', (req, res) => {
+  res.send('cool');
+});
+
 app.get('/api/movies/:movieid/reviews', (req, res) => {
   connection.query('SELECT * FROM movies ORDER BY helpful DESC LIMIT 10', (err, results) => {
     if (err) {
