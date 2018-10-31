@@ -9,8 +9,6 @@ class App extends React.Component {
     this.state = {
       reviews: []
     };
-    /*eslint-disable */
-      /* eslint-enable */
   }
 
   componentDidMount () {
@@ -18,10 +16,6 @@ class App extends React.Component {
   }
 
   loadReviews () {
-    // fetch('/api/movies/1/reviews', {
-    //   method: 'GET',
-    //   mode: 'cors'
-    // })
     fetch('/api/movies/1/reviews')
       .then(response => response.json())
       .then((data) => {
