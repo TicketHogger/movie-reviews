@@ -1,7 +1,8 @@
 import React from 'react';
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 import Rating from './Rating';
 import ReviewList from './ReviewList';
+import { getRating, loadReviews } from './ajax';
 
 class App extends React.Component {
   constructor () {
@@ -13,28 +14,30 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    this.loadReviews();
-    this.getRating();
+    // console.log(API);
+    loadReviews(this);
+    getRating(this);
   }
 
   // run this before component mounting?
   // node-fetch may have IE errors
   // isomorphic-fetch
-  getRating () {
-    fetch('/api/movies/1/rating')
-      .then(response => response.json())
-      .then((data) => {
-        this.setState({ rating: data[0].rating });
-      });
-  }
 
-  loadReviews () {
-    fetch('/api/movies/1/reviews')
-      .then(response => response.json())
-      .then((data) => {
-        this.setState({ reviews: data });
-      });
-  }
+  // getRating () {
+  //   fetch('/api/movies/1/rating')
+  //     .then(response => response.json())
+  //     .then((data) => {
+  //       this.setState({ rating: data[0].rating });
+  //     });
+  // }
+
+  // loadReviews () {
+  //   fetch('/api/movies/1/reviews')
+  //     .then(response => response.json())
+  //     .then((data) => {
+  //       this.setState({ reviews: data });
+  //     });
+  // }
 
   render () {
     const { reviews, rating } = this.state;
