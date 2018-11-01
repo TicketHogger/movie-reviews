@@ -1,7 +1,9 @@
 import fetch from 'node-fetch';
+// run this before component mounting?
+// node-fetch may have IE errors
+// isomorphic-fetch
 
 export function getRating (component) {
-  console.log('get');
   return fetch('/api/movies/1/rating')
     .then(response => response.json())
     .then((data) => {
@@ -10,7 +12,6 @@ export function getRating (component) {
 }
 
 export function loadReviews (component) {
-  console.log('load');
   return fetch('/api/movies/1/reviews')
     .then(response => response.json())
     .then((data) => {

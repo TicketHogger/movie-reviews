@@ -11,7 +11,7 @@
     "build": "webpack -w",
     "start": "nodemon server/index.js",
     "seed-db": "mysql -u root -p --local-infile < database/schema.sql",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "jest": {
     "verbose": true,

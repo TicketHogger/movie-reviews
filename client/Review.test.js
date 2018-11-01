@@ -5,6 +5,8 @@ import {
 } from 'enzyme';
 
 import App from './components/App';
+import Rating from './components/Rating';
+// import { getRating, loadReviews } from './components/ajax';
 
 describe('Testing App component', () => {
   it('title bar should render', () => {
@@ -12,11 +14,14 @@ describe('Testing App component', () => {
     expect(wrapper.contains(<b>FAN REVIEWS</b>)).toBe(true);
     expect(wrapper.find('.title-bar')).toHaveLength(1);
   });
+});
 
-  // it('getUser() should return data', () => {
-  //   return App.getRating()
-  //     .then(data => {
-  //       expect(data).toBeDefined()
-  //     })
-  // })
+describe('Testing Rating component', () => {
+  const wrapper = shallow(<Rating stars={1.5}/>);
+  it('colored stars should render', () => {
+    expect(wrapper.find('span.checked')).toHaveLength(5);
+  });
+  it('all stars should render', () => {
+    expect(wrapper.find('span.fa-star')).toHaveLength(10);
+  });
 });

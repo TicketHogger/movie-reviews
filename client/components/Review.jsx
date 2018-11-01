@@ -30,8 +30,6 @@ Review.propTypes = {
     Username: PropTypes.string,
     Review: PropTypes.string
   }).isRequired
-  // fix this later with shapeOf
-  // https://stackoverflow.com/questions/32325912/react-proptype-array-with-shape
 };
 
 export default Review;

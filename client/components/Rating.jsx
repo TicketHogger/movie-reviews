@@ -38,7 +38,7 @@ class Rating extends React.Component {
       <div className="ratings">
         <div className="empty-star">
           {this.emptyStars()}
-          <div id="fill-star" className="fill-star" style={{ width: this.fillStar() }}>
+          <div className="fill-star" style={{ width: this.fillStar() }}>
             {this.coloredStars()}
           </div>
         </div>

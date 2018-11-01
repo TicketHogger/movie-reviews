@@ -14,9 +14,14 @@ const ReviewList = (props) => {
 };
 
 ReviewList.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.object).isRequired
-  // fix this later with shapeOf
-  // https://stackoverflow.com/questions/32325912/react-proptype-array-with-shape
+  reviews: PropTypes.arrayOf(PropTypes.shape({
+    review: PropTypes.shape({
+      Title: PropTypes.string,
+      Mooz: PropTypes.number,
+      Username: PropTypes.string,
+      Review: PropTypes.string
+    })
+  })).isRequired
 };
 
 export default ReviewList;

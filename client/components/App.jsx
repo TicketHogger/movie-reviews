@@ -14,14 +14,9 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    // console.log(API);
     loadReviews(this);
     getRating(this);
   }
-
-  // run this before component mounting?
-  // node-fetch may have IE errors
-  // isomorphic-fetch
 
   // getRating () {
   //   fetch('/api/movies/1/rating')
