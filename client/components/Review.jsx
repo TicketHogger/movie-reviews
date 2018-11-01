@@ -24,7 +24,12 @@ const Review = (props) => {
 };
 
 Review.propTypes = {
-  review: PropTypes.string.isRequired
+  review: PropTypes.shape({
+    Title: PropTypes.string,
+    Mooz: PropTypes.number,
+    Username: PropTypes.string,
+    Review: PropTypes.string
+  }).isRequired
   // fix this later with shapeOf
   // https://stackoverflow.com/questions/32325912/react-proptype-array-with-shape
 };

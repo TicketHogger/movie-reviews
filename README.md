@@ -60,3 +60,8 @@ If value is false, set with:
 ```sh
 SET GLOBAL local_infile = true;
 ```
+
+## Testing
+```sh
+npm test -- --coverage
+```

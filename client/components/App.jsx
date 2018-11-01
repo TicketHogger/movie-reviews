@@ -1,5 +1,5 @@
 import React from 'react';
-import fetch from 'isomorphic-fetch';
+import fetch from 'node-fetch';
 import Rating from './Rating';
 import ReviewList from './ReviewList';
 
@@ -18,6 +18,8 @@ class App extends React.Component {
   }
 
   // run this before component mounting?
+  // node-fetch may have IE errors
+  // isomorphic-fetch
   getRating () {
     fetch('/api/movies/1/rating')
       .then(response => response.json())
