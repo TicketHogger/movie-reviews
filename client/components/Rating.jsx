@@ -2,16 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Rating extends React.Component {
-  createStars () {
-    const totalStars = 5;
+  constructor (props) {
+    super(props);
+    this.totalStars = 5;
+  }
+
+  emptyStars () {
     const result = [];
-    const { stars } = this.props;
-    for (let i = 0; i < stars; i += 1) {
-      result.push(
-        <span className="fa fa-star fa-lg checked" />
-      );
-    }
-    for (let i = 0; i < totalStars - stars; i += 1) {
+    for (let i = 0; i < this.totalStars; i += 1) {
       result.push(
         <span className="fa fa-star fa-lg" />
       );
@@ -19,10 +17,31 @@ class Rating extends React.Component {
     return result;
   }
 
+  coloredStars () {
+    const result = [];
+    for (let i = 0; i < this.totalStars; i += 1) {
+      result.push(
+        <span className="fa fa-star fa-lg checked" />
+      );
+    }
+    return result;
+  }
+
+  fillStar () {
+    const { stars } = this.props;
+    const percentage = Math.floor((stars / this.totalStars) * 100);
+    return `${percentage}%`;
+  }
+
   render () {
     return (
       <div className="ratings">
-        {this.createStars() }
+        <div className="empty-star">
+          {this.emptyStars()}
+          <div id="fill-star" className="fill-star" style={{ width: this.fillStar() }}>
+            {this.coloredStars()}
+          </div>
+        </div>
       </div>
     );
   }

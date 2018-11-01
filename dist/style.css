@@ -9,6 +9,20 @@
   left: 20px;
   display: inline-block;
 }
+
+.empty-star {
+  display: inline-block;
+  position: relative;
+}
+
+.fill-star {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .checked {
 	color: yellow;
 }

@@ -7,12 +7,23 @@ class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      reviews: []
+      reviews: [],
+      rating: 0
     };
   }
 
   componentDidMount () {
     this.loadReviews();
+    this.getRating();
+  }
+
+  // run this before component mounting?
+  getRating () {
+    fetch('/api/movies/1/rating')
+      .then(response => response.json())
+      .then((data) => {
+        this.setState({ rating: data[0].rating });
+      });
   }
 
   loadReviews () {
@@ -24,7 +35,7 @@ class App extends React.Component {
   }
 
   render () {
-    const { reviews } = this.state;
+    const { reviews, rating } = this.state;
     return (
       <div className="review-container">
         <div className="title-bar">
@@ -33,7 +44,7 @@ class App extends React.Component {
           </b>
         </div>
         <div id="overall-rating">
-          <Rating stars={3} />
+          <Rating stars={rating} />
         </div>
         <ReviewList reviews={reviews} />
       </div>
