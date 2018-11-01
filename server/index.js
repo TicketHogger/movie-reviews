@@ -24,9 +24,8 @@ app.get('/api/movies/:movieid/rating', (req, res) => {
     if (err) {
       res.status(500).send(err.message);
     } else {
-      let round = Math.round(results.rating * 10) / 10;
-      round = round.toFixed(1);
-      results.rating = round;
+      const round = Math.round(results.rating * 10) / 10;
+      results.rating = round.toFixed(1);
       res.status(200).send(results);
     }
   });

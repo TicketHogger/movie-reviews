@@ -22,9 +22,11 @@ coverage
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
+.bundle.js
 
 ## package-lock
 package-lock.json
 
 #database
 .csv
+

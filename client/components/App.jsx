@@ -22,7 +22,7 @@ class App extends React.Component {
     fetch('/api/movies/1/rating')
       .then(response => response.json())
       .then((data) => {
-        this.setState({ rating: Math.round(data[0].rating) });
+        this.setState({ rating: data[0].rating });
       });
   }
 
