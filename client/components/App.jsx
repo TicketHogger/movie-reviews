@@ -9,33 +9,39 @@ class App extends React.Component {
     super();
     this.state = {
       reviews: [],
-      rating: 0
+      rating: 0,
+      showReviews: [],
+      numDisplay: 10
     };
   }
 
   componentDidMount () {
-    loadReviews(this);
-    getRating(this);
+    loadReviews()
+      .then((data) => {
+        this.sortReviews(data);
+      });
+    getRating()
+      .then((data) => {
+        this.showRating(data);
+      });
   }
 
-  // getRating () {
-  //   fetch('/api/movies/1/rating')
-  //     .then(response => response.json())
-  //     .then((data) => {
-  //       this.setState({ rating: data[0].rating });
-  //     });
-  // }
+  sortReviews (reviews) {
+    const { numDisplay } = this.state;
+    const displayReviews = [];
+    // show 10 elements
+    for (let i = 0; i < numDisplay; i += 1) {
+      displayReviews.push(reviews[i]);
+    }
+    this.setState({ showReviews: displayReviews, reviews });
+  }
 
-  // loadReviews () {
-  //   fetch('/api/movies/1/reviews')
-  //     .then(response => response.json())
-  //     .then((data) => {
-  //       this.setState({ reviews: data });
-  //     });
-  // }
+  showRating (data) {
+    this.setState({ rating: data[0].rating });
+  }
 
   render () {
-    const { reviews, rating } = this.state;
+    const { rating, showReviews } = this.state;
     return (
       <div className="review-container">
         <div className="title-bar">
@@ -46,7 +52,7 @@ class App extends React.Component {
         <div id="overall-rating">
           <Rating stars={rating} />
         </div>
-        <ReviewList reviews={reviews} />
+        <ReviewList reviews={showReviews} />
       </div>
     );
   }

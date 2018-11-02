@@ -32,7 +32,7 @@ app.get('/api/movies/:movieid/rating', (req, res) => {
 });
 
 app.get('/api/movies/:movieid/reviews', (req, res) => {
-  connection.query('SELECT * FROM movies ORDER BY helpful DESC LIMIT 10', (err, results) => {
+  connection.query('SELECT * FROM movies ORDER BY helpful DESC LIMIT 100', (err, results) => {
     if (err) {
       res.status(500).send(err.message);
     } else {
