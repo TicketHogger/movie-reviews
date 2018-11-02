@@ -8,10 +8,10 @@ class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      reviews: [],
-      rating: 0,
-      showReviews: [],
-      numDisplay: 10
+      reviews: [], // all reviews (100)
+      rating: 0, // overall rating
+      showReviews: [], // displayed reviews
+      numDisplay: 10 // number of reviews to display
     };
   }
 
