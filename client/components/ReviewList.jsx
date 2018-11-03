@@ -6,17 +6,22 @@ const ReviewList = (props) => {
   const { reviews } = props;
   return (
     <div className="review-list">
-      { reviews.map((review, index) => (
-        <Review review={review} />))
+      { reviews.map(review => (
+        <Review key={review.Username} review={review} />))
       }
     </div>
   );
 };
 
 ReviewList.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.object).isRequired
-  // fix this later with shapeOf
-  // https://stackoverflow.com/questions/32325912/react-proptype-array-with-shape
+  reviews: PropTypes.arrayOf(PropTypes.shape({
+    review: PropTypes.shape({
+      Title: PropTypes.string,
+      Mooz: PropTypes.number,
+      Username: PropTypes.string,
+      Review: PropTypes.string
+    })
+  })).isRequired
 };
 
 export default ReviewList;

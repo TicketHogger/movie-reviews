@@ -1,41 +1,49 @@
 import React from 'react';
-import fetch from 'isomorphic-fetch';
+// import fetch from 'node-fetch';
 import Rating from './Rating';
 import ReviewList from './ReviewList';
+import { getRating, loadReviews } from './ajax';
 
 class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      reviews: [],
-      rating: 0
+      reviews: [], // all reviews (100)
+      rating: 0, // overall rating
+      showReviews: [], // displayed reviews
+      numDisplay: 10 // number of reviews to display
     };
   }
 
   componentDidMount () {
-    this.loadReviews();
-    this.getRating();
-  }
-
-  // run this before component mounting?
-  getRating () {
-    fetch('/api/movies/1/rating')
-      .then(response => response.json())
+    loadReviews()
       .then((data) => {
-        this.setState({ rating: data[0].rating });
+        this.sortReviews(data);
+      });
+    getRating()
+      .then((data) => {
+        this.showRating(data);
       });
   }
 
-  loadReviews () {
-    fetch('/api/movies/1/reviews')
-      .then(response => response.json())
-      .then((data) => {
-        this.setState({ reviews: data });
-      });
+  sortReviews (reviews) {
+    const { numDisplay } = this.state;
+    const displayReviews = [];
+    // show 10 elements
+    for (let i = 0; i < numDisplay; i += 1) {
+      displayReviews.push(reviews[i]);
+    }
+    this.setState({ showReviews: displayReviews, reviews });
+    // console.log('review', reviews);
+  }
+
+  showRating (data) {
+    this.setState({ rating: data[0].rating });
   }
 
   render () {
-    const { reviews, rating } = this.state;
+    const { rating, showReviews } = this.state;
+
     return (
       <div className="review-container">
         <div className="title-bar">
@@ -46,7 +54,7 @@ class App extends React.Component {
         <div id="overall-rating">
           <Rating stars={rating} />
         </div>
-        <ReviewList reviews={reviews} />
+        <ReviewList reviews={showReviews} />
       </div>
     );
   }

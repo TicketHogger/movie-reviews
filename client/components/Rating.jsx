@@ -11,7 +11,7 @@ class Rating extends React.Component {
     const result = [];
     for (let i = 0; i < this.totalStars; i += 1) {
       result.push(
-        <span className="fa fa-star fa-lg" />
+        <span key={i} className="fa fa-star fa-lg" />
       );
     }
     return result;
@@ -21,7 +21,7 @@ class Rating extends React.Component {
     const result = [];
     for (let i = 0; i < this.totalStars; i += 1) {
       result.push(
-        <span className="fa fa-star fa-lg checked" />
+        <span key={i} className="fa fa-star fa-lg checked" />
       );
     }
     return result;
@@ -38,7 +38,7 @@ class Rating extends React.Component {
       <div className="ratings">
         <div className="empty-star">
           {this.emptyStars()}
-          <div id="fill-star" className="fill-star" style={{ width: this.fillStar() }}>
+          <div className="fill-star" style={{ width: this.fillStar() }}>
             {this.coloredStars()}
           </div>
         </div>

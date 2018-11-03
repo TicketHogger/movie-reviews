@@ -25,6 +25,7 @@ for (let i = 1; i < rows + 1; i += 1) {
   const moozRating = Math.floor(Math.random() * 5) + 1; // rating system
   const reviewText = `${faker.lorem.paragraph()}`;
   const helpfulReviews = Math.floor(Math.random() * 300);
+  // const dateWritten = faker.date.past();
 
   const data = `\n${id}, ${username}, ${title}, ${moozRating}, ${reviewText}, ${helpfulReviews}`;
 
