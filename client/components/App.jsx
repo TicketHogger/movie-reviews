@@ -3,6 +3,7 @@ import React from 'react';
 import Rating from './Rating';
 import ReviewList from './ReviewList';
 import { getRating, loadReviews } from './ajax';
+import '../../styles/style.css';
 
 class App extends React.Component {
   constructor () {
