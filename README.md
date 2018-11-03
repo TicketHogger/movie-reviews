@@ -13,6 +13,8 @@ Moovi Reviews module
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
+1. [Seeding](#seeding)
+1. [Testing](#testing)
 
 ## Usage
 
@@ -39,7 +41,7 @@ From within the root directory:
 npm install
 ```
 
-## Seeding database
+## Seeding
 
 From /database:
 ```sh
@@ -63,5 +65,5 @@ SET GLOBAL local_infile = true;
 
 ## Testing
 ```sh
-npm test -- --coverage
+npm test
 ```

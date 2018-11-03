@@ -3,12 +3,13 @@ import React from 'react';
 import Rating from './Rating';
 import ReviewList from './ReviewList';
 import { getRating, loadReviews } from './ajax';
+import '../../styles/style.css';
 
 class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      reviews: [], // all reviews (100)
+      reviews: [], // all reviews (100). this is here for pagination
       rating: 0, // overall rating
       showReviews: [], // displayed reviews
       numDisplay: 10 // number of reviews to display
@@ -28,13 +29,14 @@ class App extends React.Component {
 
   sortReviews (reviews) {
     const { numDisplay } = this.state;
+    // edge case where total reviews is less than max reviews displayed
+    const display = reviews.length < numDisplay ? reviews.length : numDisplay;
     const displayReviews = [];
     // show 10 elements
-    for (let i = 0; i < numDisplay; i += 1) {
+    for (let i = 0; i < display; i += 1) {
       displayReviews.push(reviews[i]);
     }
     this.setState({ showReviews: displayReviews, reviews });
-    // console.log('review', reviews);
   }
 
   showRating (data) {

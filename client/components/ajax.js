@@ -8,6 +8,7 @@ export function getRating () {
     .then(response => response.json());
 }
 
+// don't want this to be returning in array
 export function loadReviews () {
   return fetch('/api/movies/1/reviews')
     .then(response => response.json());
