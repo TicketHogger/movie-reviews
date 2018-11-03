@@ -4,8 +4,8 @@ import {
   shallow, mount, render
 } from 'enzyme';
 
-import App from './components/App';
-import Rating from './components/Rating';
+import App from '../client/components/App';
+import Rating from '../client/components/Rating';
 // import { getRating, loadReviews } from './components/ajax';
 
 describe('Testing App component', () => {

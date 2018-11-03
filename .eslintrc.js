@@ -3,6 +3,7 @@ module.exports = {
   "rules": {
   	// "prefer-template": "off",
   	// "no-plusplus": 0,
+    "max-len": 0,
     "no-param-reassign": 0,
   	"no-console": 0
   },

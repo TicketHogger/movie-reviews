@@ -34,6 +34,7 @@ class App extends React.Component {
       displayReviews.push(reviews[i]);
     }
     this.setState({ showReviews: displayReviews, reviews });
+    // console.log('review', reviews);
   }
 
   showRating (data) {
@@ -42,6 +43,7 @@ class App extends React.Component {
 
   render () {
     const { rating, showReviews } = this.state;
+
     return (
       <div className="review-container">
         <div className="title-bar">

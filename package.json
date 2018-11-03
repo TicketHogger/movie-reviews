@@ -15,7 +15,7 @@
   },
   "jest": {
     "verbose": true,
-    "setupTestFrameworkScriptFile": "<rootDir>client/enzyme.js"
+    "setupTestFrameworkScriptFile": "<rootDir>test/enzyme.js"
   },
   "dependencies": {
     "@babel/cli": "^7.1.2",
