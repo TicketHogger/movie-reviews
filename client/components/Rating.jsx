@@ -27,6 +27,7 @@ class Rating extends React.Component {
     return result;
   }
 
+  // consider implementing percentage into state
   fillStar () {
     const { stars } = this.props;
     const percentage = Math.floor((stars / this.totalStars) * 100);
@@ -38,7 +39,7 @@ class Rating extends React.Component {
       <div className="ratings">
         <div className="empty-star">
           {this.emptyStars()}
-          <div className="fill-star" style={{ width: this.fillStar() }}>
+          <div id="fill-star" className="fill-star" style={{ width: this.fillStar() }}>
             {this.coloredStars()}
           </div>
         </div>

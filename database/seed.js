@@ -27,7 +27,7 @@ for (let i = 1; i < rows + 1; i += 1) {
   const helpfulReviews = Math.floor(Math.random() * 300);
   // const dateWritten = faker.date.past();
 
-  const data = `\n${id}, ${username}, ${title}, ${moozRating}, ${reviewText}, ${helpfulReviews}`;
+  const data = `\n${id},${username},${title},${moozRating},${reviewText},${helpfulReviews}`;
 
   fs.appendFile(fileUrl, data, (err) => {
     if (err) {
