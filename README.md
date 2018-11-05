@@ -44,6 +44,7 @@ npm install
 ## Seeding
 
 From /database:
+Change connection.js file if user is not root
 ```sh
 node seed.js
 ```
