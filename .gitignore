@@ -20,7 +20,7 @@ coverage
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
-# Compiled Dirs (http://nodejs.org/api/addons.html)
+# Compiled Dirs + Files (http://nodejs.org/api/addons.html)
 build/
 *.bundle.js
 
@@ -28,5 +28,5 @@ build/
 package-lock.json
 
 #database
-.csv
+*.csv
 
