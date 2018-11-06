@@ -3,13 +3,13 @@ import fetch from 'node-fetch';
 // node-fetch may have IE errors
 // isomorphic-fetch
 
-export function getRating () {
-  return fetch('/api/movies/1/rating')
+export function getRating (movie) {
+  return fetch(`/api/movies/${movie}/rating`)
     .then(response => response.json());
 }
 
 // don't want this to be returning in array
-export function loadReviews () {
-  return fetch('/api/movies/1/reviews')
+export function loadReviews (movie) {
+  return fetch(`/api/movies/${movie}/reviews`)
     .then(response => response.json());
 }

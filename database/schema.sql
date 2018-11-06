@@ -1,20 +1,39 @@
 CREATE DATABASE IF NOT EXISTS fandango;
 use fandango;
 
+DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS movies;
 
 CREATE TABLE movies (
+  id INT NOT NULL AUTO_INCREMENT,
+  Title VARCHAR(30),
+  PRIMARY KEY (id)
+);
+
+LOAD DATA LOCAL INFILE './database/movie-data.csv'
+INTO TABLE movies
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+CREATE TABLE reviews (
   id INT NOT NULL AUTO_INCREMENT,
   Username VARCHAR(50) NOT NULL,
   Title VARCHAR(50),
   Mooz INT NOT NULL,
   Review VARCHAR(500),
   Helpful INT DEFAULT 0,
-  PRIMARY KEY (id)
+  Movie INT NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY fk_movie(Movie)
+  REFERENCES movies(id)
+  ON UPDATE CASCADE
+  ON DELETE RESTRICT
 );
 
-LOAD DATA LOCAL INFILE './database/data.csv'
-INTO TABLE movies
+LOAD DATA LOCAL INFILE './database/review-data.csv'
+INTO TABLE reviews
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'

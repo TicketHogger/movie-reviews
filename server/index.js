@@ -20,7 +20,7 @@ app.use((request, response, next) => {
 });
 
 app.get('/api/movies/:movieid/rating', (req, res) => {
-  connection.query('SELECT AVG(Mooz) \'rating\' FROM movies', (err, results) => {
+  connection.query(`SELECT AVG(Mooz) 'rating' FROM reviews WHERE movie = ${req.params.movieid}`, (err, results) => {
     if (err) {
       res.status(500).send(err.message);
     } else {
@@ -32,7 +32,7 @@ app.get('/api/movies/:movieid/rating', (req, res) => {
 });
 
 app.get('/api/movies/:movieid/reviews', (req, res) => {
-  connection.query('SELECT * FROM movies ORDER BY helpful DESC LIMIT 100', (err, results) => {
+  connection.query(`SELECT * FROM reviews WHERE movie = ${req.params.movieid} ORDER BY helpful DESC LIMIT 100`, (err, results) => {
     if (err) {
       res.status(500).send(err.message);
     } else {

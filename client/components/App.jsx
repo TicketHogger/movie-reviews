@@ -12,16 +12,18 @@ class App extends React.Component {
       reviews: [], // all reviews (100). this is here for pagination
       rating: 0, // overall rating
       showReviews: [], // displayed reviews
-      numDisplay: 10 // number of reviews to display
+      numDisplay: 10, // number of reviews to display
+      movie: Math.floor(Math.random() * 100) + 1
     };
   }
 
   componentDidMount () {
-    loadReviews()
+    const { movie } = this.state;
+    loadReviews(movie)
       .then((data) => {
         this.sortReviews(data);
       });
-    getRating()
+    getRating(movie)
       .then((data) => {
         this.showRating(data);
       });
@@ -44,13 +46,13 @@ class App extends React.Component {
   }
 
   render () {
-    const { rating, showReviews } = this.state;
-
+    const { rating, showReviews, reviews } = this.state;
+    const length = reviews.length || 0;
     return (
       <div className="review-container">
         <div className="title-bar">
           <b>
-            FAN REVIEWS
+            { `FAN REVIEWS (${length}) reviews` }
           </b>
         </div>
         <div id="overall-rating">
