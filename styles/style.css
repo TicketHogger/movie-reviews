@@ -1,13 +1,29 @@
 .title-bar {
-  font-size: 26px;
+  font-size: 35px;
   display: inline-block;
   padding: 10px;
+  padding-top: 30px;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 #overall-rating {
   position: relative;
   left: 20px;
-  padding-bottom: 20px;
+  display: inline-block;
+}
+
+#overall-rating .empty-star {
+  font-size: 20px;
+}
+
+.title-container {
+  /*position: flex;
+  display: inline;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;*/
+  margin-top: 30px;
+  margin-left: 100px;
 }
 
 .empty-star {
@@ -27,18 +43,26 @@
 	color: yellow;
 }
 
+.review-list {
+  display: flex;
+  padding: 50px;
+  flex-wrap: wrap;
+}
+
 .review {
+  /*display: inline-block;*/
   max-width: 300px;
-  border: 1px solid black;
   padding: 20px;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .review-title {
   padding-top: 5px;
-  font-size: 26px;
+  font-size: 21px;
 }
 
 .review-username {
+  padding-left: 10px;
   padding-top: 4px;
   font-size: 18px;
 }

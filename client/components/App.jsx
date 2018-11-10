@@ -12,7 +12,7 @@ class App extends React.Component {
       reviews: [], // all reviews (100). this is here for pagination
       rating: 0, // overall rating
       showReviews: [], // displayed reviews
-      numDisplay: 10, // number of reviews to display
+      numDisplay: 12, // number of reviews to display
       movie: Math.floor(Math.random() * 100) + 1
     };
   }

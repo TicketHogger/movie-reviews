@@ -9,8 +9,8 @@
   },
   "scripts": {
     "build": "webpack -w",
-    "start": "nodemon server/index.js",
-    "seed-db": "mysql -u root -p --local-infile < database/schema.sql",
+    "start": "node server/server.js",
+    "seed-db": "mysql -u fecreviews -p fecreviews --host=fecreviews.c8fpikzsg3ek.us-west-1.rds.amazonaws.com --local-infile < database/schema.sql",
     "test": "jest --coverage"
   },
   "jest": {
