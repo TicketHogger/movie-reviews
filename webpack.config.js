@@ -1,5 +1,4 @@
 const path = require('path');
-
 module.exports = {
   entry: './client/index.jsx',
   output: {
@@ -21,16 +20,5 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       }
     ]
-  },
-  resolve: { extensions: ['.js', '.jsx'] }
-  // loaders: [
-  //   {
-  //     test: /\.jsx?$/,
-  //     exclude: /node_modules/,
-  //     loader: 'babel-loader',
-  //     query: {
-  //       presets: ['es2015', 'react']
-  //     }
-  //   }
-  // ]
+  }
 };
