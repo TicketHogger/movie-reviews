@@ -1,7 +1,7 @@
 import React from 'react';
 // import fetch from 'node-fetch';
-import Rating from './Rating';
-import ReviewList from './ReviewList';
+import Rating from './Rating.jsx';
+import ReviewList from './ReviewList.jsx';
 import { getRating, loadReviews } from './ajax';
 import '../../styles/style.css';
 
