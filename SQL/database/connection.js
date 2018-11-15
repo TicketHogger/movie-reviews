@@ -11,6 +11,7 @@ const connection = mysql.createPool({
 //   user: 'fecreviews',
 //   password: 'fecreviews',
 //   port: 3306
+//
 });
 
 module.exports = connection;
