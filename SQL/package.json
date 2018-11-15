@@ -10,7 +10,7 @@
   "scripts": {
     "build": "webpack -w",
     "start": "node server/server.js",
-    "seed": "mysql -u fecreviews -p fecreviews --host=fecreviews.c8fpikzsg3ek.us-west-1.rds.amazonaws.com --local-infile < database/schema.sql",
+    "seed": "mysql -u root -p fandango --host=localhost --local-infile < database/schema.sql",
     "test": "jest --coverage"
   },
   "jest": {

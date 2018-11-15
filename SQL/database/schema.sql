@@ -10,7 +10,7 @@ CREATE TABLE movies (
   PRIMARY KEY (id)
 );
 
-LOAD DATA LOCAL INFILE './database/movie-data.csv'
+LOAD DATA LOCAL INFILE './movie-data.csv'
 INTO TABLE movies
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -32,7 +32,7 @@ CREATE TABLE reviews (
   ON DELETE RESTRICT
 );
 
-LOAD DATA LOCAL INFILE './database/review-data.csv'
+LOAD DATA LOCAL INFILE './review-data.csv'
 INTO TABLE reviews
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
