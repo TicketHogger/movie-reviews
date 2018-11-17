@@ -10,8 +10,8 @@ file.on('drain', function() {
 const seeder = () => {
   const start = new Date();
  
-  const rows = 10000001;
-  var i = 10000000;
+  const rows = 10000000;
+  var i = 0;
 
   while (i < rows) {
       const titleLength = Math.floor(Math.random() * 5) + 1; // 1-5
