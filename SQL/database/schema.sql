@@ -1,40 +1,34 @@
-CREATE DATABASE IF NOT EXISTS fandango;
-use fandango;
+DROP DATABASE IF EXISTS fandango;
+CREATE DATABASE fandango;
+drop table if exists reviews;
+drop table if exists movies;
 
-DROP TABLE IF EXISTS reviews;
-DROP TABLE IF EXISTS movies;
 
-CREATE TABLE movies (
-  id INT NOT NULL AUTO_INCREMENT,
-  Title VARCHAR(30),
+CREATE TABLE movies
+(
+
+  id serial,
+  title VARCHAR(30) NOT NULL,
   PRIMARY KEY (id)
+
 );
 
-LOAD DATA LOCAL INFILE './database/movie-data.csv'
-INTO TABLE movies
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 LINES;
+CREATE TABLE reviews
+(
 
-CREATE TABLE reviews (
-  id INT NOT NULL AUTO_INCREMENT,
-  Username VARCHAR(50) NOT NULL,
-  Title VARCHAR(50),
-  Mooz INT NOT NULL,
-  Review VARCHAR(500),
-  Helpful INT DEFAULT 0,
-  Movie INT NOT NULL,
-  PRIMARY KEY (id),
-  FOREIGN KEY fk_movie(Movie)
-  REFERENCES movies(id)
-  ON UPDATE CASCADE
-  ON DELETE RESTRICT
+  id serial,
+  username VARCHAR(50) NOT NULL,
+  title VARCHAR(500),
+  mooz INT NOT NULL,
+  review VARCHAR(500),
+  helpful INT DEFAULT 0,
+  movie INT NOT NULL,
+  PRIMARY KEY (id)
+
 );
 
-LOAD DATA LOCAL INFILE './database/review-data.csv'
-INTO TABLE reviews
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 LINES;
+
+
+COPY reviews FROM '/home/jawad10/Desktop/ticket-hoggler/movie-reviews/SQL/database/review-data.csv' DELIMITER ',' CSV HEADER;
+-- COPY movies FROM '/home/jawad10/Desktop/ticket-hoggler/movie-reviews/SQL/database/-data2.csv' DELIMITER ',' CSV HEADER;
+

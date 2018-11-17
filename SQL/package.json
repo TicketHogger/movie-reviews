@@ -10,7 +10,7 @@
   "scripts": {
     "build": "webpack -w",
     "start": "node server/server.js",
-    "seed": "mysql -u fecreviews -p fecreviews --host=fecreviews.c8fpikzsg3ek.us-west-1.rds.amazonaws.com --local-infile < database/schema.sql",
+    "seed": "mysql -u root -p fandango --host=localhost --local-infile < database/schema.sql",
     "test": "jest --coverage"
   },
   "jest": {
@@ -42,6 +42,7 @@
     "mysql": "^2.16.0",
     "node-fetch": "^2.2.0",
     "nodemon": "^1.18.4",
+    "pg": "^7.6.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-addons-test-utils": "^15.6.2",

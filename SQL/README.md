@@ -1,20 +1,16 @@
-# Moovi
+# Movie Reviews
+Display detailed information about a movie
 
-Moovi Reviews module
 
-## Related Projects
-
-  - https://github.com/Team-DAD/movie-times
-  - https://github.com/Team-DAD/movie-dada
-  - https://github.com/Team-DAD/movie-summary
 
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-1. [Seeding](#seeding)
-1. [Testing](#testing)
+2. [Requirements](#requirements)
+3. [Endpoints](#Endpoints)
+3. [Development](#development)
+4. [Seeding](#seeding)
+5. [Testing](#testing)
 
 ## Usage
 
@@ -30,6 +26,17 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
 - etc
+
+
+## Endpoints
+
+| Action        | Request       | Route            |  Purpose  |
+| ------------- | -------------| ----------------| ---------------|
+| Create        | POST          | /api/movies/:movieId/review | insert new review |
+| Read          | GET           | /api/movies/:movieId/review | read reviews |
+| Update        | PUT           | /api/movies/:movieId/review | update a review |
+| Delete        | DELETE        | /api/movies/:movieId/review | delete a review |
+
 
 ## Development
 
