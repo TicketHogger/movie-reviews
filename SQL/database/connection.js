@@ -1,12 +1,14 @@
 const mysql = require('mysql');
+const pg = require('pg');
 
-const connection = mysql.createPool({
-  // user: 'root',
+const connection = pg.Pool({
+  // user: 'root'
+  user: 'postgres',
   database: 'fandango',
-  host: process.env.RDS_HOSTNAME,
+  host: '127.0.0.1',
   user: 'root',
   password: 'root',
-  port: process.env.RDS_PORT
+  port: 5432
 //   host: 'fecreviews.c8fpikzsg3ek.us-west-1.rds.amazonaws.com',
 //   user: 'fecreviews',
 //   password: 'fecreviews',

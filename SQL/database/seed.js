@@ -1,7 +1,7 @@
 const faker = require('faker');
 
 const fs = require('fs');
-const file = fs.createWriteStream('./review-data2.csv', { encoding: 'utf8', flags: 'a' });
+const file = fs.createWriteStream('./review-data.csv', { encoding: 'utf8', flags: 'a' });
 
 
 file.on('drain', function() {
