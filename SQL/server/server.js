@@ -1,17 +1,14 @@
+require('newrelic');
 const express = require('express');
-
-const bodyParser = require('body-parser');
 const path = require('path');
-const connection = require('../database/connection.js');
-
-const app = express();
+const bodyParser = require('body-parser');
+const { Client } = require('pg');
 const port = 8081;
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+const app = express();
 
 app.use(express.static(path.resolve(__dirname, '../dist/')));
 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use((request, response, next) => {
   response.set({
     'Access-Control-Allow-Origin': '*'
@@ -19,13 +16,25 @@ app.use((request, response, next) => {
   next();
 });
 
+app.use(bodyParser.json());
+
+const client = new Client ({
+  user: 'postgres',
+  host: '127.0.0.1',
+  database: 'postgres',
+  password: 'root',
+  port: 5432
+});
+client.connect();
+
+
 app.get('/api/movies/:movieid/rating', (req, res) => {
-  connection.query(`SELECT AVG(Mooz) 'rating' FROM reviews WHERE movie = ${req.params.movieid}`, (err, results) => {
+  client.query(`SELECT AVG(Mooz) FROM reviews WHERE movie = ${req.params.movieid}`, (err, results) => {
     if (err) {
       console.log(err);
       res.status(500).send(err.message);
     } else {
-      const round = Math.round(results.rating * 10) / 10;
+      const round = Math.round(results.rows[0].avg * 10) / 10;
       results.rating = round.toFixed(1);
       res.status(200).send(results);
     }
@@ -33,7 +42,10 @@ app.get('/api/movies/:movieid/rating', (req, res) => {
 });
 
 app.get('/api/movies/:movieid/reviews', (req, res) => {
-  connection.query(`SELECT * FROM reviews WHERE movie = ${req.params.movieid} ORDER BY helpful DESC LIMIT 100`, (err, results) => {
+  // console.log('from get', req.params.movieid);
+  // client.connect();
+  client.query(`SELECT * FROM reviews WHERE movie = ${req.params.movieid} ORDER BY helpful DESC LIMIT 100`, (err, results) => {
+    // console.log('from results', results);
     if (err) {
       console.log(err);
       res.status(500).send(err.message);
@@ -44,5 +56,6 @@ app.get('/api/movies/:movieid/reviews', (req, res) => {
 });
 
 app.listen(port, () => console.log('listening on port', port));
+
 
 module.exports = app;

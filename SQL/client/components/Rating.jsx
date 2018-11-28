@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { type } from 'os';
 
 class Rating extends React.Component {
   constructor (props) {
@@ -28,7 +29,7 @@ class Rating extends React.Component {
   }
 
   // consider implementing percentage into state
-  fillStar () {
+  fillStar () {   
     const { stars } = this.props;
     const percentage = Math.floor((stars / this.totalStars) * 100);
     return `${percentage}%`;

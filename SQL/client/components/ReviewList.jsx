@@ -4,10 +4,11 @@ import Review from './Review.jsx';
 
 const ReviewList = (props) => {
   const { reviews } = props;
+  console.log('from ReviewList', reviews[0]);
   return (
     <div className="review-list">
       { reviews.map(review => (
-        <Review key={review.Username} review={review} />))
+        <Review key={review.username} review={review} />))
       }
     </div>
   );
@@ -16,10 +17,10 @@ const ReviewList = (props) => {
 ReviewList.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.shape({
     review: PropTypes.shape({
-      Title: PropTypes.string,
-      Mooz: PropTypes.number,
-      Username: PropTypes.string,
-      Review: PropTypes.string
+      title: PropTypes.string,
+      mooz: PropTypes.number,
+      username: PropTypes.string,
+      review: PropTypes
     })
   })).isRequired
 };

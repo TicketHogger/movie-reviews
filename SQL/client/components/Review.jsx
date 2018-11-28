@@ -6,18 +6,18 @@ const Review = (props) => {
   const { review } = props;
   return (
     <div className="review">
-      <Rating stars={review.Mooz} />
+      <Rating stars={review.mooz} />
       <div className="review-title">
         <b>
-          {review.Title}
+          {review.title}
         </b>
       </div>
       <div className="review-username">
         BY
-        {` ${review.Username}`}
+        {` ${review.username}`}
       </div>
       <div className="review-text">
-        {review.Review}
+        {review.review}
       </div>
     </div>
   );
@@ -25,10 +25,10 @@ const Review = (props) => {
 
 Review.propTypes = {
   review: PropTypes.shape({
-    Title: PropTypes.string,
-    Mooz: PropTypes.number,
-    Username: PropTypes.string,
-    Review: PropTypes.string
+    title: PropTypes.string,
+    mooz: PropTypes.number,
+    username: PropTypes.string,
+    review: PropTypes.string
   }).isRequired
 };
 

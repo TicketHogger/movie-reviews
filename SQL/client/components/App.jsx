@@ -21,7 +21,7 @@ class App extends React.Component {
     const { movie } = this.state;
     loadReviews(movie)
       .then((data) => {
-        this.sortReviews(data);
+        this.sortReviews(data.rows);
       });
     getRating(movie)
       .then((data) => {
@@ -30,6 +30,7 @@ class App extends React.Component {
   }
 
   sortReviews (reviews) {
+    // reviews = reviews.rows;
     const { numDisplay } = this.state;
     // edge case where total reviews is less than max reviews displayed
     const display = reviews.length < numDisplay ? reviews.length : numDisplay;
@@ -38,11 +39,12 @@ class App extends React.Component {
     for (let i = 0; i < display; i += 1) {
       displayReviews.push(reviews[i]);
     }
+    console.log('from app', reviews[0]);
     this.setState({ showReviews: displayReviews, reviews });
   }
 
   showRating (data) {
-    this.setState({ rating: data[0].rating });
+    this.setState({ rating: parseInt(data.rating) });
   }
 
   render () {
