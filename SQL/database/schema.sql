@@ -29,6 +29,5 @@ CREATE TABLE reviews
 
 
 
-COPY reviews FROM '/home/jawad10/Desktop/ticket-hoggler/movie-reviews/SQL/database/review-data.csv' DELIMITER ',' CSV HEADER;
-COPY movies FROM '/home/jawad10/Desktop/ticket-hoggler/movie-reviews/SQL/database/movie-data.csv' DELIMITER ',' CSV HEADER;
-
+\COPY reviews FROM 'review-data.csv' DELIMITER ',' CSV HEADER;
+\COPY movies FROM 'movie-data.csv' DELIMITER ',' CSV HEADER;

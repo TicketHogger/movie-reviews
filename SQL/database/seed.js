@@ -1,8 +1,8 @@
 const faker = require('faker');
 
 const fs = require('fs');
-const file = fs.createWriteStream('./review-data.csv', { encoding: 'utf8', flags: 'a' });
-const file2 = fs.createWriteStream('./movie-data.csv', { encoding: 'utf8', flags: 'a' });
+const file = fs.createWriteStream('./review-data2.csv', { encoding: 'utf8', flags: 'a' });
+const file2 = fs.createWriteStream('./movie-data2.csv', { encoding: 'utf8', flags: 'a' });
 
 
 
@@ -17,7 +17,7 @@ file2.on('drain', function() {
 const seeder = () => {
   const start = new Date();
  
-  const rows = 5000000;
+  const rows = 10000000;
 
   for (let i = 1; i < rows/1000 + 1; i += 1) {
     const titleLength = Math.floor(Math.random() * 3) + 1;

@@ -1,4 +1,4 @@
-require('newrelic');
+// require('newrelic');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 const client = new Client ({
   user: 'postgres',
-  host: '127.0.0.1',
+  host: '3.17.14.32',
   database: 'postgres',
   password: 'root',
   port: 5432
