@@ -39,7 +39,6 @@ class App extends React.Component {
     for (let i = 0; i < display; i += 1) {
       displayReviews.push(reviews[i]);
     }
-    console.log('from app', reviews[0]);
     this.setState({ showReviews: displayReviews, reviews });
   }
 
