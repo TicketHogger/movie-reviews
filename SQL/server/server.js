@@ -1,10 +1,12 @@
-// require('newrelic');
+require('newrelic');
+const compression = require('compression');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const { Client } = require('pg');
 const port = 8081;
 const app = express();
+app.use(compression());
 
 app.use(express.static(path.resolve(__dirname, '../dist/')));
 
