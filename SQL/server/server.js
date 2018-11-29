@@ -41,6 +41,10 @@ app.get('/api/movies/:movieid/rating', (req, res) => {
   });
 });
 
+app.get('/loaderio-c48c9878246bcd1ef0bf2ad6080a5697', (req, res) => {
+  res.send('loaderio-c48c9878246bcd1ef0bf2ad6080a5697');
+});
+
 app.get('/api/movies/:movieid/reviews', (req, res) => {
   // console.log('from get', req.params.movieid);
   // client.connect();
