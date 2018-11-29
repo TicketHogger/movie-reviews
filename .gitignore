@@ -29,7 +29,8 @@ package-lock.json
 
 #database
 *.csv
-
+#newrelic
+newrelic.js
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
