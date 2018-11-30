@@ -7,7 +7,7 @@ const ReviewList = (props) => {
   return (
     <div className="review-list">
       { reviews.map(review => (
-        <Review key={review.Username} review={review} />))
+        <Review key={review.username} review={review} />))
       }
     </div>
   );
@@ -16,10 +16,10 @@ const ReviewList = (props) => {
 ReviewList.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.shape({
     review: PropTypes.shape({
-      Title: PropTypes.string,
-      Mooz: PropTypes.number,
-      Username: PropTypes.string,
-      Review: PropTypes.string
+      title: PropTypes.string,
+      mooz: PropTypes.number,
+      username: PropTypes.string,
+      review: PropTypes
     })
   })).isRequired
 };

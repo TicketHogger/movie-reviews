@@ -8,7 +8,7 @@ CREATE TABLE movies
 (
 
   id serial,
-  title VARCHAR(30) NOT NULL,
+  Title VARCHAR(100) NOT NULL,
   PRIMARY KEY (id)
 
 );
@@ -17,18 +17,17 @@ CREATE TABLE reviews
 (
 
   id serial,
-  username VARCHAR(50) NOT NULL,
-  title VARCHAR(500),
-  mooz INT NOT NULL,
-  review VARCHAR(500),
-  helpful INT DEFAULT 0,
-  movie INT NOT NULL,
+  Username VARCHAR(50) NOT NULL,
+  Title VARCHAR(500),
+  Mooz INT NOT NULL,
+  Review VARCHAR(500),
+  Helpful INT DEFAULT 0,
+  Movie INT NOT NULL,
   PRIMARY KEY (id)
 
 );
 
 
 
-COPY reviews FROM '/home/jawad10/Desktop/ticket-hoggler/movie-reviews/SQL/database/review-data.csv' DELIMITER ',' CSV HEADER;
--- COPY movies FROM '/home/jawad10/Desktop/ticket-hoggler/movie-reviews/SQL/database/-data2.csv' DELIMITER ',' CSV HEADER;
-
+\COPY reviews FROM 'review-data.csv' DELIMITER ',' CSV HEADER;
+\COPY movies FROM 'movie-data.csv' DELIMITER ',' CSV HEADER;

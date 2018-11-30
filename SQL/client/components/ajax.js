@@ -5,11 +5,11 @@ import fetch from 'node-fetch';
 
 export function getRating (movie) {
   return fetch(`/api/movies/${movie}/rating`)
-    .then(response => response.json());
+    .then(response => response.json())
 }
 
 // don't want this to be returning in array
 export function loadReviews (movie) {
   return fetch(`/api/movies/${movie}/reviews`)
-    .then(response => response.json());
+    .then(response => response.json())
 }

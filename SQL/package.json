@@ -8,7 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack -w",
+    "build": "webpack -w -p",
     "start": "node server/server.js",
     "seed": "mysql -u root -p fandango --host=localhost --local-infile < database/schema.sql",
     "test": "jest --coverage"
@@ -31,6 +31,7 @@
     "babel-preset-jest": "^23.2.0",
     "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
     "css-loader": "^1.0.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
@@ -40,6 +41,7 @@
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0",
     "mysql": "^2.16.0",
+    "newrelic": "^4.11.0",
     "node-fetch": "^2.2.0",
     "nodemon": "^1.18.4",
     "pg": "^7.6.1",
