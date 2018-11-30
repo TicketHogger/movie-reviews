@@ -29,9 +29,13 @@ const client = new Client ({
 });
 client.connect();
 
+app.get('/loaderio-c48c9878246bcd1ef0bf2ad6080a5697', (req, res) => {
+  res.send('loaderio-c48c9878246bcd1ef0bf2ad6080a5697');
+});
+
 
 app.get('/api/movies/:movieid/rating', (req, res) => {
-  client.query(`SELECT AVG(Mooz) FROM reviews WHERE movie = ${req.params.movieid}`, (err, results) => {
+  client.query(`SELECT AVG(mooz) FROM reviews1 WHERE movie = ${req.params.movieid}`, (err, results) => {
     if (err) {
       console.log(err);
       res.status(500).send(err.message);
@@ -43,14 +47,10 @@ app.get('/api/movies/:movieid/rating', (req, res) => {
   });
 });
 
-app.get('/loaderio-c48c9878246bcd1ef0bf2ad6080a5697', (req, res) => {
-  res.send('loaderio-c48c9878246bcd1ef0bf2ad6080a5697');
-});
-
 app.get('/api/movies/:movieid/reviews', (req, res) => {
   // console.log('from get', req.params.movieid);
   // client.connect();
-  client.query(`SELECT * FROM reviews WHERE movie = ${req.params.movieid} ORDER BY helpful DESC LIMIT 100`, (err, results) => {
+  client.query(`SELECT * FROM reviews1 where movie = ${req.params.movieid} ORDER BY helpful DESC LIMIT 20 `, (err, results) => {
     // console.log('from results', results);
     if (err) {
       console.log(err);

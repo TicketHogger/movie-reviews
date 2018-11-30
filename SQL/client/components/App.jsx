@@ -53,7 +53,7 @@ class App extends React.Component {
       <div className="review-container">
         <div className="title-bar">
           <b>
-            { ` 🐮 FAN REVIEWS 🐮 (${length})` }
+            { ` 🐮 FAN REVIEWS   ` }
           </b>
         </div>
         <div id="overall-rating">

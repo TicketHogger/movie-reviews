@@ -9,7 +9,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['movie-reviews'],
+  app_name: ['movie-reviews-service'],
   /**
    * Your New Relic license key.
    */
